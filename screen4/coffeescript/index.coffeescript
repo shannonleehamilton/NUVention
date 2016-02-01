@@ -1,0 +1,93 @@
+$ ->
+ 
+  for i in [1...5]
+    $('.option').first().clone().appendTo('.options')
+  
+  $('.status-toggle').on 'click', (e)->
+    e.preventDefault()
+    $(this).toggleClass('on off')
+    
+  $('.options').sortable
+    axis: 'y'
+    cancel: '.precode, .title, .locked, .updating, .toggle-edit'
+    items: '.option:not(.locked)'
+    start: ->
+      $('.locked', this).each ->
+        self = $(this)
+        self.data('pos', self.index())
+    change: ->
+      $sortable = $(this)
+      $locked = $('.locked', this).detach()
+      $helper = $('<li></li>').prependTo(this)
+      $locked.each ->
+        self = $(this)
+        target = self.data('pos')
+        self.insertAfter($('li', $sortable).eq(target))
+      $helper.remove()
+  
+  o = $('.option').first()
+  
+  o.attr('data-intro', "Sort items with drag 'n drop" ).attr('data-position', 'left')
+  o.next().find('.status-toggle').attr('data-intro', 'Toggle status').attr('data-position', 'right')
+  o.next().next().find('.entypo-pencil').attr('data-intro', "Click to edit").attr('data-position', 'right')
+  
+  o.next().next().next().addClass('locked').find('.toggle-anchor').attr('data-intro', 'Anchor items in place (when conditions can be randomized)').attr('data-position', 'bottom')
+   
+  $('a[data-toggle=chardinjs]').on 'click', (e)->
+      if !$('.chardinjs-overlay').length
+        o.next().next().next().toggleClass('editing').find('.entypo-check').attr('data-intro', 'Save changes').attr('data-position', 'right')
+        $(this).text('Ok, got it.')
+      else
+        o.next().next().next().toggleClass('editing')
+        $(this).text('Help')
+      $(this).toggleClass('blue')
+      $('body').chardinJs('toggle')
+      
+  $('.toggle-edit').on 'click', ->
+    option = $(this).closest('.option')
+    self = $(this)
+    if option.hasClass('editing')
+      getNewValues(option)
+    else
+      option.toggleClass('editing')
+    
+  getNewValues = (option) ->
+    option.find('input').each ->
+      v = $.trim(this.value);
+      if v.length
+        $(this).siblings('.display').text(v)
+      else
+        this.value = $(this).siblings('.display').text()
+        
+    option.find('select').each ->   
+      v = this.options[this.selectedIndex].label
+      $(this).siblings('.display').text(v)
+    
+    exitSave(option)
+    
+  exitSave = (option) ->
+    saveBtn = option.find('.entypo-check')
+    saveBtn.text('Saved').addClass('animated bounceOut')
+    setTimeout(->
+      option.toggleClass('editing')
+      saveBtn.removeClass('animated bounceOut').text('Save')
+    , 1000)
+    
+  $(".add-new").on 'click', ->
+    n = o.clone(true)
+    n.find('.display').text('')
+    n.find('input.edit').val('')
+    n.addClass('editing animated fadeIn')
+    n.appendTo('.options').find('input').first().focus()
+    setTimeout(->
+      n.removeClass('animated fadeIn')
+    , 1000)
+    
+  $(".toggle-anchor").on 'click', ->
+    option = $(this).closest('.option')
+    self = $(this)
+    self.addClass('animated bounceOut')
+    option.toggleClass('locked')
+    setTimeout(->
+      self.removeClass('animated bounceOut')
+    , 500)

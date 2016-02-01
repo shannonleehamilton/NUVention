@@ -1,0 +1,387 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(http://daneden.me/animate/animate.css);
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1;
+}
+
+.btn {
+  padding: 6px 20px;
+  margin: 20px 40px;
+  background: #eee;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.btn.blue {
+  background-color: #2888cc;
+  color: white;
+}
+
+html {
+  background: transparent;
+}
+
+p {
+  margin: 50px 40px 0;
+}
+
+.right {
+  float: right;
+}
+
+body {
+  min-width: 600px;
+  width: 800px;
+  margin: 0 auto;
+  background: #eee;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #333;
+}
+
+.options {
+  list-style: none;
+  margin: 50px auto;
+  padding: 0;
+}
+
+.option {
+  background: #fff;
+  margin: 1px 40px;
+  position: relative;
+  backface-visibility: hidden;
+}
+.option > span {
+  line-height: 48px;
+}
+.option.editing {
+  background-color: #fff2a8;
+}
+.option .precode {
+  margin: 0 10px;
+}
+.option .status-toggle {
+  line-height: 27px;
+}
+.option .precode, .option .status-toggle {
+  vertical-align: top;
+}
+.option .move {
+  width: 48px;
+  line-height: 20px;
+  text-align: center;
+  color: #ddd;
+  transform: rotate(90deg);
+  cursor: move;
+  font-size: 15px;
+}
+.option:hover .move {
+  color: #aaa;
+}
+.option:hover .move:hover {
+  color: #333;
+}
+.option span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.locked .move {
+  opacity: 0;
+  cursor: default;
+}
+.locked .entypo-locks:before {
+  content: "\1f512";
+}
+.locked .toggle-anchor {
+  color: #333;
+  opacity: 1;
+}
+
+.entypo-locks:before {
+  content: "\1f513";
+}
+
+.title {
+  width: 45%;
+  min-width: 300px;
+}
+
+.precode {
+  font-style: italic;
+  width: 50px;
+  text-align: right;
+}
+.precode .edit {
+  text-align: right;
+}
+
+.editable .display {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  line-height: 48px;
+}
+
+.option:hover .toggle-edit, .option:hover .toggle-anchor {
+  opacity: 1;
+}
+
+.entypo-pencil:before, .entypo-check:before {
+  left: 10px;
+  position: absolute;
+}
+
+.toggle-edit {
+  right: -100px;
+  padding: 0 30px;
+}
+
+.toggle-edit, .toggle-anchor {
+  position: absolute;
+  opacity: 0;
+  color: #aaa;
+  transition: opacity 0.1s ease-in-out;
+  cursor: pointer;
+  top: 0;
+  line-height: 48px;
+  width: 40px;
+  height: 100%;
+}
+.toggle-edit:hover, .toggle-anchor:hover {
+  color: #333;
+}
+
+.toggle-anchor {
+  left: -40px;
+  text-align: center;
+}
+
+.status-toggle {
+  border-radius: 13px;
+  font-size: 12px;
+  margin: 11px 12px;
+  overflow: hidden;
+  width: 54px;
+  cursor: pointer;
+  background: #fff;
+  -webkit-transition: margin 0.1s ease-in-out;
+}
+.status-toggle:hover {
+  background: #eee;
+}
+.status-toggle.on .status-dot {
+  background: green;
+}
+.status-toggle.on .status-mask {
+  margin-left: 0;
+}
+.status-toggle.off {
+  color: #ccc;
+}
+.status-toggle.off .status-dot {
+  background: #ccc;
+}
+.status-toggle.off .status-mask {
+  margin-left: -32px;
+}
+
+.status-on, .status-off {
+  text-transform: uppercase;
+  width: 38px;
+  text-align: center;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 5px;
+}
+
+.status-mask {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: margin 0.2s ease-in-out;
+}
+
+.edit {
+  display: none;
+  border: none;
+  -webkit-appearance: none;
+  outline: none;
+  background: #fff;
+}
+
+.editing .display {
+  display: none;
+}
+.editing .edit {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin: 9px 0;
+  padding: 0 6px;
+  margin-right: 20px;
+  background: #fff;
+}
+.editing .entypo-pencil {
+  display: none;
+}
+.editing .entypo-check {
+  display: block;
+}
+
+.entypo-check {
+  display: none;
+}
+
+.ui-sortable-helper {
+  border: 1px solid #2888cc;
+  margin: -1px 39px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 19999999;
+}
+
+.chardinjs-overlay {
+  position: absolute;
+  z-index: 999999;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.chardinjs-helper-layer {
+  position: absolute;
+  z-index: 9999998;
+  color: white;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.chardinjs-helper-layer.chardinjs-left {
+  border-left: solid white 1px;
+  margin-left: -10px;
+}
+
+.chardinjs-helper-layer.chardinjs-right {
+  border-right: solid white 1px;
+  padding-right: 10px;
+}
+
+.chardinjs-helper-layer.chardinjs-bottom {
+  border-bottom: solid white 1px;
+  padding-bottom: 10px;
+}
+
+.chardinjs-helper-layer.chardinjs-top {
+  border-top: solid white 1px;
+  padding-top: 10px;
+}
+
+.chardinjs-tooltip {
+  position: absolute;
+  -webkit-transition: opacity 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out;
+  -ms-transition: opacity 0.1s ease-out;
+  -o-transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
+  max-width: 200px;
+}
+
+.chardinjs-tooltip.chardinjs-left {
+  margin-left: -135px;
+  padding-right: 10px;
+}
+
+.chardinjs-tooltip.chardinjs-right {
+  margin-right: -135px;
+  padding-left: 10px;
+}
+
+.chardinjs-tooltip.chardinjs-bottom {
+  margin-bottom: -50px;
+  padding-top: 10px;
+}
+
+.chardinjs-tooltip.chardinjs-top {
+  margin-top: -50px;
+  padding-bottom: 10px;
+}
+
+.chardinjs-tooltip.chardinjs-right:before, .chardinjs-tooltip.chardinjs-left:after, .chardinjs-tooltip.chardinjs-bottom:before, .chardinjs-tooltip.chardinjs-top:after {
+  content: ".";
+  display: inline-block;
+  background-color: white;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.chardinjs-tooltip.chardinjs-right:before, .chardinjs-tooltip.chardinjs-left:after {
+  width: 100px;
+  top: 50%;
+}
+
+.chardinjs-tooltip.chardinjs-bottom:before, .chardinjs-tooltip.chardinjs-top:after {
+  width: 1px;
+  height: 50px;
+  left: 50%;
+}
+
+.chardinjs-tooltip.chardinjs-bottom:before {
+  top: -50px;
+}
+
+.chardinjs-tooltip.chardinjs-top:after {
+  bottom: -50px;
+}
+
+.chardinjs-tooltip.chardinjs-right:before {
+  left: -100px;
+}
+
+.chardinjs-tooltip.chardinjs-left:after {
+  right: -100px;
+}
+
+.chardinjs-show-element {
+  z-index: 9999999;
+  opacity: 0.8;
+}
+
+.chardinjs-relative-position {
+  position: relative;
+}

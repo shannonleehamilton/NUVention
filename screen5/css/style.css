@@ -1,0 +1,382 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+body
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+
+    color: #414042;
+    background: #25bda8;
+}
+p
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 45px;
+    color:white;
+    font-weight: bold;
+}    
+
+*, *:before, *:after
+{
+    box-sizing: border-box;
+}
+
+p
+{
+    text-align: center;
+}
+
+.widget
+{
+    z-index: 3;
+
+    width: 600px;
+    margin: 30px auto 0;
+    padding: 1px 15px 60px;
+
+    -webkit-transition: all .4s cubic-bezier(.68, -.55, .265, 1.55);
+
+    transition: all .4s cubic-bezier(.68, -.55, .265, 1.55);
+    -webkit-transform: translateY(500px);
+            transform: translateY(500px);
+
+    border-radius: 16px 16px  0 0;
+    background: #f1fbf9;
+}
+
+.widget.active
+{
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.widget:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
+.slider
+{
+    margin: 0 5px;
+}
+
+.dragdealer
+{
+    margin: 150px 8px 0;
+
+    border-radius: 15px;
+    background: #e9e9ea;
+}
+
+.dragdealer .green-circle
+{
+    line-height: 30px;
+
+    position: relative;
+    z-index: 8;
+
+    width: 30px;
+    height: 30px;
+
+    text-align: center;
+
+    background: #fff;
+}
+
+.dragdealer .green-circle:after
+{
+    position: absolute;
+    top: -8px;
+    left: -8px;
+
+    width: 46px;
+    height: 46px;
+
+    content: '';
+    -webkit-transition: all .1s;
+    transition: all .1s;
+
+    border: 8px solid #25bda8;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+}
+
+.dragdealer.active .green-circle:after
+{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+
+    width: 50px;
+    height: 50px;
+
+    content: '';
+
+    border: 14px solid #25bda8;
+    border-radius: 50%;
+    background: #a6e4db;
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+}
+
+@-webkit-keyframes iconIn
+{
+    0%
+    {
+        -webkit-transform: translateY(40px) scale(0);
+                transform: translateY(40px) scale(0);
+    }
+    70%
+    {
+        -webkit-transform: translateY(-10px) scale(1.3);
+                transform: translateY(-10px) scale(1.3);;
+    }
+    100%
+    {
+        -webkit-transform: translateY(0px) scale(1);
+                transform: translateY(0px) scale(1);;
+    }
+}
+
+@keyframes iconIn
+{
+    0%
+    {
+        -webkit-transform: translateY(40px) scale(0);
+                transform: translateY(40px) scale(0);
+    }
+    70%
+    {
+        -webkit-transform: translateY(-10px) scale(1.3);
+                transform: translateY(-10px) scale(1.3);;
+    }
+    100%
+    {
+        -webkit-transform: translateY(0px) scale(1);
+                transform: translateY(0px) scale(1);;
+    }
+}
+
+
+
+@-webkit-keyframes iconOut
+{
+    0%
+    {
+        -webkit-transform: translateY(0px) scale(1);
+                transform: translateY(0px) scale(1);
+    }
+    100%
+    {
+        -webkit-transform: translateY(50px) scale(0);
+                transform: translateY(50px) scale(0);
+    }
+}
+
+
+
+@keyframes iconOut
+{
+    0%
+    {
+        -webkit-transform: translateY(0px) scale(1);
+                transform: translateY(0px) scale(1);
+    }
+    100%
+    {
+        -webkit-transform: translateY(50px) scale(0);
+                transform: translateY(50px) scale(0);
+    }
+}
+
+.dragdealer .green-circle .icon
+{
+    position: absolute;
+    top: -100px;
+    left: -22px;
+
+    width: 75px;
+    height: 75px;
+
+    -webkit-transform: scale(0);
+
+            transform: scale(0);
+    -webkit-animation: iconOut .3s 1.3s backwards;
+            animation: iconOut .3s 1.3s backwards;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+
+    color: white;
+    border-radius: 50%;
+    background: #25bda8;
+    background-image: url(http://321zeno.com/misc/rating/faces.jpg);
+    background-position-x: -.5px;
+    background-position-y: 0;
+}
+
+.dragdealer.active .green-circle .icon
+{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    -webkit-animation: iconIn .3s forwards;
+            animation: iconIn .3s forwards;
+}
+
+.dragdealer .green-circle .icon:after
+{
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+
+    content: '';
+
+    border-width: 15px 10px 0 10px;
+    border-style: solid;
+    border-color: #25bda8 transparent transparent transparent;
+}
+
+.scale
+{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.scale td
+{
+    position: relative;
+
+    width: 10%;
+
+    text-align: center;
+}
+
+.scale td:after
+{
+    position: absolute;
+    z-index: 5;
+    top: -40px;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+    margin-left: -6px;
+
+    content: '';
+
+    border-radius: 50%;
+    background-color: #bcbec0;
+}
+
+button
+{
+    font-size: 20px;
+    font-weight: normal;
+
+    float: right;
+
+    margin-top: 20px;
+    padding: 20px 25px;
+
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    background-color: #CE5D3B;
+}
+
+.base
+{
+    position: relative;
+    top: -40px;
+
+    width: 800px;
+    margin: 0 auto;
+}
+
+.base--top
+{
+    height: 8px;
+
+    border-radius: 0 0 8px 8px ;
+    background: #20ab98;
+}
+.base--top:before
+{
+    position: relative;
+    z-index: -5;
+    top: -8px;
+
+    display: block;
+
+    height: 8px;
+
+    content: '';
+
+    border-radius: 8px 8px 0 0;
+    background: #20ab98;
+}
+
+.base--bottom
+{
+    z-index: 13;
+
+    height: 700px;
+
+    background: #25bda8;
+}
+  a:-webkit-any-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: auto;
+}
+button
+{
+    font-size: 20px;
+    font-weight: normal;
+    float: right;
+
+    margin-top: 20px;
+    padding: 20px 25px;
+
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    background-color: #CE5D3B;
+}
+button
+{
+    font-size: 20px;
+    font-weight: normal;
+    float: right;
+
+    margin-top: 20px;
+    padding: 20px 25px;
+
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    background-color: #CE5D3B;
+}
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  text-align: center;
+  font-size:45px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+h2 {
+   margin: 5px 0 2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #34495E;
+    font-size: 20px;
+    text-align:center;
+  }
