@@ -192,57 +192,6 @@ p
     }
 }
 
-.dragdealer .green-circle .icon
-{
-    position: absolute;
-    top: -100px;
-    left: -22px;
-
-    width: 75px;
-    height: 75px;
-
-    -webkit-transform: scale(0);
-
-            transform: scale(0);
-    -webkit-animation: iconOut .3s 1.3s backwards;
-            animation: iconOut .3s 1.3s backwards;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-
-    color: white;
-    border-radius: 50%;
-    background: #25bda8;
-    background-image: url(http://321zeno.com/misc/rating/faces.jpg);
-    background-position-x: -.5px;
-    background-position-y: 0;
-}
-
-.dragdealer.active .green-circle .icon
-{
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform: translateY(0px) scale(1);
-            transform: translateY(0px) scale(1);
-    -webkit-animation: iconIn .3s forwards;
-            animation: iconIn .3s forwards;
-}
-
-.dragdealer .green-circle .icon:after
-{
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-
-    width: 0;
-    height: 0;
-    margin-left: -10px;
-
-    content: '';
-
-    border-width: 15px 10px 0 10px;
-    border-style: solid;
-    border-color: #25bda8 transparent transparent transparent;
-}
 
 .scale
 {

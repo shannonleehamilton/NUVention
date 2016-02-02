@@ -22,9 +22,3 @@ var icon = $('.icon'),
 		openWidget();
 	});
 
-	widget.submit(function(e){
-		e.preventDefault();
-		widget.removeClass('active');
-		openWidget();
-		return false;
-	});
